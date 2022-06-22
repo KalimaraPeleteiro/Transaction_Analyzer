@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Projeto Django</title>
+    <link href="static/css/lib/themify-icons.css" rel="stylesheet">
+    <link href="static/css/lib/menubar/sidebar.css" rel="stylesheet">
+    <link href="static/css/lib/bootstrap.min.css" rel="stylesheet">
+    <link href="static/css/table.css" rel="stylesheet">
+    <link href="static/css/style.css" rel="stylesheet">
+
+</head>
+
+<body>
+
+    <div class="sidebar sidebar-hide-to-small sidebar-shrink sidebar-gestures">
+        <div class="nano">
+            <div class="nano-content">
+                <ul>
+                    <div class="logo"><a href="{% url 'dashboard'%}">
+                        <!-- <img src="static/images/logo.png" alt="" /> --><span>Menu</span></a></div>
+                    <li><a href="{% url 'dashboard'%}"><i class="ti-home"></i> Dashboard </li>
+                    <li><a href="{% url 'upload'%}"><i class="ti-user"></i> Importar Transações</li>
+                    <li><a href="{% url 'history'%}"><i class="ti-user"></i> Minhas Transações</li>
+                    <li><a href="{% url 'profile'%}"><i class="ti-user"></i> Profile</a></li>
+                    <li><a><i class="ti-close"></i> Logout</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <div class="content-wrap">
+        <div class="main">
+            <div class="container-fluid">
+                <!-- /# row -->
+                <section id="main-content">
+                    <div class="row">
+
+                        <div class="h2">
+                            <br>
+                            <h2>Minhas Transações</h2>
+                        </div>
+                        
+                        <table class="table">
+                            <thead class="thead">
+                              <tr>
+                                <th scope="col">Origem (Banco)</th>
+                                <th scope="col">Origem (Agência)</th>
+                                <th scope="col">Origem (Conta)</th>
+                                <th scope="col">Destino (Banco)</th>
+                                <th scope="col">Destino (Agência)</th>
+                                <th scope="col">Destino (Conta)</th>
+                                <th scope="col">Valor</th>
+                              </tr>
+                            </thead>
+                            <tbody>
+                              <tr>
+                                <td>Something</td>
+                                <td>Something</td>
+                                <td>Something</td>
+                                <td>Something</td>
+                                <td>Something</td>
+                                <td>Something</td>
+                                <td>Something</td>
+                              </tr>
+                            </tbody>
+                        </table>
+                        
+                    </div>
+                </section>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
