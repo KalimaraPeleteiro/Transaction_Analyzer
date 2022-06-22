@@ -10,9 +10,7 @@ def dashboard(request):
 
 
 def upload(request):
-    form = CSVForm()
-    context = {'form': form}
-    return render(request, 'import.html', context)
+    return render(request, 'import.html', {'form': CSVForm()})
 
 
 def newfile(request):
@@ -24,9 +22,18 @@ def newfile(request):
         file = reader(file)
 
         for line in file:
-            print(line)
+            print(f'Banco (Origem) = {line[0]}')
+            print(f'Agencia (Origem) = {line[1]}')
+            print(f'Conta (Origem) = {line[2]}')
+            print(f'Banco (Destino) = {line[3]}')
+            print(f'Agencia (Destino) = {line[4]}')
+            print(f'Conta (Destino) = {line[5]}')
+            print(f'Valor = {line[6]}')
+            print(f'Data = {line[7]}')
+            print('\n')
 
-    return render(request, 'import.html')
+
+    return render(request, 'import.html', {'form': CSVForm()})
 
 
 def history(request):
