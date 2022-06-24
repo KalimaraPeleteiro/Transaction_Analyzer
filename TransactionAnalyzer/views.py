@@ -1,7 +1,8 @@
 from django.shortcuts import render
-from TransactionAnalyzer.file_operations import handle_uploaded_file
 
+from TransactionAnalyzer.file_operations import handle_uploaded_file
 from TransactionAnalyzer.forms import CSVForm
+from TransactionAnalyzer.models import MoneyOperation
 
 
 def dashboard(request):
@@ -22,7 +23,9 @@ def newfile(request):
 
 
 def history(request):
-    return render(request, 'transactions.html')
+    operations = MoneyOperation.objects.all()
+
+    return render(request, 'transactions.html', {'operations': operations})
 
 
 def profile(request):

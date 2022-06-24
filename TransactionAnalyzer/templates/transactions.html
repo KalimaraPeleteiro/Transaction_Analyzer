@@ -46,26 +46,20 @@
                         <table class="table">
                             <thead class="thead">
                               <tr>
-                                <th scope="col">Origem (Banco)</th>
-                                <th scope="col">Origem (Agência)</th>
-                                <th scope="col">Origem (Conta)</th>
-                                <th scope="col">Destino (Banco)</th>
-                                <th scope="col">Destino (Agência)</th>
-                                <th scope="col">Destino (Conta)</th>
-                                <th scope="col">Valor</th>
+                                <th scope="col">Data da Transação</th>
+                                <th scope="col">Data da Importação</th>
                               </tr>
                             </thead>
+
+                            {% for operation in operations %}
                             <tbody>
                               <tr>
-                                <td>Something</td>
-                                <td>Something</td>
-                                <td>Something</td>
-                                <td>Something</td>
-                                <td>Something</td>
-                                <td>Something</td>
-                                <td>Something</td>
+                                <td>{{operation.data_transacao}}</td>
+                                <td>{{operation.data_upload}}</td>
                               </tr>
                             </tbody>
+                            {% endfor %}
+
                         </table>
                         
                     </div>
