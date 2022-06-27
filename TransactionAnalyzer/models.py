@@ -4,6 +4,7 @@ from django.contrib.auth.models import User
 from datetime import datetime
 
 
+# Modelo relacionado as operações financeiras registradas na plataforma
 class MoneyOperation(models.Model):
     usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     banco_origem = models.CharField(max_length=1000)

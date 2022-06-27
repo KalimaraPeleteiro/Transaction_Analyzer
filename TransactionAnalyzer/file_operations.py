@@ -1,8 +1,11 @@
-from TransactionAnalyzer.models import MoneyOperation
+# Esse é o código responsável pelo input do arquivo CSV e o envio do mesmo ao banco de dados
+
 from csv import reader
 from io import TextIOWrapper
+from TransactionAnalyzer.models import MoneyOperation
 
 
+# Função Princial (Que é chamada na view)
 def handle_uploaded_file(file, user):
     file = read_file(file)
     insert_into_database(list(file), user)
@@ -16,10 +19,10 @@ def read_file(file):
 
 
 def insert_into_database(file, user):
+    # Adquirindo a data da primeira transação
     base_data = file[0][7]
     base_data = base_data[:10]
 
-    
     # Verificação 01 - O Arquivo está vazio?
     if empty_line(file):
         return None
@@ -41,6 +44,7 @@ def insert_into_database(file, user):
                 operation.save()
 
 
+# Verificação 01 - O Arquivo está vazio?
 def empty_line(file):
     for line in file:
         if line == '':
@@ -49,6 +53,7 @@ def empty_line(file):
     return False
 
 
+# Verificação 02 - Tem linhas faltando?
 def empty_info(line):
     for element in line:
         if element == '':
@@ -57,6 +62,7 @@ def empty_info(line):
     return False
 
 
+# Verificação 03 - A data é válida (Mesmo dia)?
 def is_data_invalid(data, base_data):
     if data[:10] != base_data:
         return True
@@ -64,6 +70,7 @@ def is_data_invalid(data, base_data):
     return False
 
 
+# Verificação 04 - Já existe no banco de dados?
 def is_operation_in_database(line):
     query_set = MoneyOperation.objects.filter(banco_origem = line[0], agencia_origem = line[1], 
                                               conta_origem = line[2], banco_destino = line[3], 

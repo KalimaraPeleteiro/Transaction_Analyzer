@@ -1,15 +1,16 @@
+# Código responsável pelo envio da senha ao email do usuário registrado
+
 import smtplib
 import ssl
 
-def send_email(receiver, password, username):
 
-    print("Chegou na Função!")
+def send_email(receiver, password, username):
 
     smtp_server = "smtp.gmail.com"
     port = 587
     sender_email = "moneyanalyzer.team@gmail.com"
 
-    # This is a generated password, don't try to use it to log in into the account, it wont work.
+    # Essa é uma senha gerada.
     email_password = "nmmmzzdggfltbwpy"
 
     context = ssl.create_default_context()
