@@ -43,40 +43,27 @@
                         </div>
                     </div>
                 </div>
-                    <form>
+                    <form action="{% url 'enter'%}" method="POST">
+                        {% csrf_token %}
+
                         <!-- Email input -->
                         <div class="form-outline mb-4">
-                            <input type="email" id="form2Example1" class="form-control" />
-                            <label class="form-label" for="form2Example1">Endereço de Email</label>
+                            <input type="email" id="email" name="email" class="form-control" />
+                            <label class="form-label" for="email">Endereço de Email</label>
                         </div>
                     
                         <!-- Password input -->
                         <div class="form-outline mb-4">
-                            <input type="password" id="form2Example2" class="form-control" />
-                            <label class="form-label" for="form2Example2">Senha</label>
+                            <input type="password" id="password" name="password" class="form-control" />
+                            <label class="form-label" for="password">Senha</label>
                         </div>
                     
                         <!-- Submit button -->
-                        <button type="button" class="btn btn-primary btn-block mb-4">Entrar</button>
+                        <button type="Submit" class="btn btn-primary btn-block mb-4">Entrar</button>
                     
                         <!-- Register buttons -->
                         <div class="text-center">
-                            <p>Não se cadastrou? <a href="#">Registre-se</a></p>
-                        <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-facebook-f"></i>
-                        </button>
-                    
-                        <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-google"></i>
-                        </button>
-                    
-                        <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-twitter"></i>
-                        </button>
-                    
-                        <button type="button" class="btn btn-link btn-floating mx-1">
-                            <i class="fab fa-github"></i>
-                        </button>
+                            <p>Não se cadastrou? <a href="{% url 'signup'%}">Registre-se</a></p>
                         </div>
                   </form>
                 <section id="main-content">
