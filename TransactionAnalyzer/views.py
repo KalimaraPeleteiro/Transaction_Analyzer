@@ -1,5 +1,6 @@
-from django.shortcuts import redirect, render
+from django.shortcuts import get_object_or_404, redirect, render
 from django.contrib import auth
+from django.contrib.auth.models import User
 
 from TransactionAnalyzer.file_operations import handle_uploaded_file
 from TransactionAnalyzer.forms import CSVForm
@@ -21,15 +22,16 @@ def upload(request):
 
 
 def newfile(request):
-    if request.method == "POST":        
-        handle_uploaded_file(request.FILES['file_upload'])
+    if request.method == "POST":
+        user = get_object_or_404(User, pk = request.user.id)       
+        handle_uploaded_file(request.FILES['file_upload'], user)
 
     return render(request, 'import.html', {'form': CSVForm()})
 
 
 def history(request):
     if request.user.is_authenticated:
-        operations = MoneyOperation.objects.all()
+        operations = MoneyOperation.objects.all().filter(usuario = request.user.id)
         return render(request, 'transactions.html', {'operations': operations})    
     else:
         return render(request, 'login.html')
@@ -45,3 +47,9 @@ def profile(request):
 def logout(request):
     auth.logout(request)
     return render(request, 'login.html')
+
+
+def operation(request, operation_id):
+    operation = get_object_or_404(MoneyOperation, pk=operation_id)
+
+    return render(request, "operation.html", {'operation': operation})

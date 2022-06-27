@@ -3,9 +3,9 @@ from csv import reader
 from io import TextIOWrapper
 
 
-def handle_uploaded_file(file):
+def handle_uploaded_file(file, user):
     file = read_file(file)
-    insert_into_database(list(file))
+    insert_into_database(list(file), user)
     
 
 def read_file(file):
@@ -15,7 +15,7 @@ def read_file(file):
     return file
 
 
-def insert_into_database(file):
+def insert_into_database(file, user):
     base_data = file[0][7]
     base_data = base_data[:10]
 
@@ -37,7 +37,7 @@ def insert_into_database(file):
                 operation = MoneyOperation(banco_origem = line[0], agencia_origem = line[1], 
                                            conta_origem = line[2], banco_destino = line[3], 
                                            agencia_destino = line[4], conta_destino = line[5], 
-                                           valor = line[6], data_transacao = line[7])
+                                           valor = line[6], data_transacao = line[7], usuario=user)
                 operation.save()
 
 

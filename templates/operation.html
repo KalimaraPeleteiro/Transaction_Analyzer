@@ -40,31 +40,20 @@
 
                         <div class="h2">
                             <br>
-                            <h2>Minhas Transações</h2>
+                            <h2>Detalhes da Transação</h2>
                         </div>
                         
-                        <table class="table">
-                            <thead class="thead">
-                              <tr>
-                                <th scope="col">Data da Transação</th>
-                                <th scope="col">Data da Importação</th>
-                                <th scope="col"></th>
-                              </tr>
-                            </thead>
-
-                            {% for operation in operations %}
-                            <tbody>
-                              <tr>
-                                <td>{{operation.data_transacao}}</td>
-                                <td>{{operation.data_upload}}</td>
-                                <td><a href="{% url 'operation' operation.id%}"><button type="button" class="btn btn-primary">Detalhes</button></a></td>
-                              </tr>
-                            </tbody>
-                            {% endfor %}
-
-                        </table>
-                        
                     </div>
+                    <h6>Banco (Origem): {{operation.banco_origem}}</h6>
+                    <h6>Agencia (Origem): {{operation.agencia_origem}}</h6>
+                    <h6>Conta (Origem): {{operation.conta_origem}}</h6>
+                    <h6>Banco (Destino): {{operation.banco_destino}}</h6>
+                    <h6>Agencia (Destino): {{operation.agencia_destino}}</h6>
+                    <h6>Conta (Destino): {{operation.conta_destino}}</h6>
+                    <h6>Valor: {{operation.valor}}</h6>
+                    <br>
+                    <p>Transação executada em: {{operation.data_transacao}}</p>
+                    <p>Transação enviada em: {{operation.data_upload}}</p>
                 </section>
             </div>
         </div>

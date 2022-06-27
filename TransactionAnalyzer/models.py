@@ -1,8 +1,11 @@
 from django.db import models
+from django.contrib.auth.models import User
+
 from datetime import datetime
 
 
 class MoneyOperation(models.Model):
+    usuario = models.ForeignKey(User, on_delete=models.CASCADE)
     banco_origem = models.CharField(max_length=1000)
     agencia_origem = models.CharField(max_length=100)
     conta_origem = models.CharField(max_length=100)
