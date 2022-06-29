@@ -8,22 +8,26 @@ from UserSystem.email import send_email
 
 # Rotas de Arquivo HTML.
 def login(request):
-    return render(request, 'login.html')
+    return render(request, 'UserSystem/login.html')
 
 
 def signup(request):
-    return render(request, 'signup.html')
+    return render(request, 'UserSystem/signup.html')
 
 
 # Rotas Intermediárias (Que Realizam Alguma Ação)
 def enter(request):
+    """
+    Rota de Login. São realizadas três verificações, e, caso o usuário passe por elas,
+    ele pode acessar a plataforma.
+    """
+
     if request.method == "POST":
         email = request.POST['email']
         password = request.POST['password']
 
         # Verificação 01 - Algum Campo Está Vazio?
         if email == "" or password == "":
-            print("Campos Vazios!")
             return redirect('login')
         
         # Verificação 02 - O Usuário está cadastado?
@@ -34,28 +38,29 @@ def enter(request):
             # Verificação 03 - As credenciais são válidas?
             if user is not None:
                 auth.login(request, user)
-                print('Login realizado com sucesso')
-                return render(request, 'dashboard.html')
+                return redirect('dashboard')
             else:
-                print("Senha Errada!")
                 return redirect('login')
         else:
-            print("Usuário não cadastrado!")
             return redirect('signup')
 
 
-    return render(request, 'login.html')
+    return render(request, 'UserSystem/login.html')
 
 
 def register(request):
+    """
+    Rota de registro de um novo usuário. Após verificar se o usuário já existe, uma senha é criada
+    com um número aleatório de 6 dígitos, encriptografada pelo django e enviada ao usuário por email.
+    """
+
     if request.method == "GET":
         username = request.GET["user"]
         email = request.GET['email']
 
         # Verificação 01 - O Usuário já existe?
         if User.objects.filter(email=email).exists():
-            print("Usuário já existe!")
-            return render(request, 'signup.html')
+            return redirect('signup')
         else:
             password = f'{randint(1, 999999)}'
 
