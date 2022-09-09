@@ -8,7 +8,7 @@ A server-side web app that allows the user to upload a list of financial transac
 | :label: Tecnologias | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg" width=50 height=50/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width=50 height=50/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" width=50 height=50/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain-wordmark.svg" width=50 height=50/>
 
 <!-- Inserir imagem com a #vitrinedev ao final do link -->
-![report](https://user-images.githubusercontent.com/94702837/176440028-bf4740d7-4653-4253-bddd-fb9a6dc67796.png)
+![report](https://user-images.githubusercontent.com/94702837/176440028-bf4740d7-4653-4253-bddd-fb9a6dc67796.png#vitrinedev)
 
 ## 🚀 Project
 The website was made using a modified free template (_template.zip_), that is inside the project folder. 
