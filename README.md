@@ -1,13 +1,15 @@
 <h1 align="center"> MoneyAnalyzer </h1>
 
 A server-side web app that allows the user to upload a list of financial transactions, giving feedback over potential frauds and illicit movements.
-<br></br>
+
+| :placard: Vitrine.Dev |     |
+| -------------  | --- |
+| :sparkles: Nome        | MoneyAnalyzer
+| :label: Tecnologias | <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg" width=50 height=50/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width=50 height=50/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" width=50 height=50/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain-wordmark.svg" width=50 height=50/>
+
+<!-- Inserir imagem com a #vitrinedev ao final do link -->
 ![report](https://user-images.githubusercontent.com/94702837/176440028-bf4740d7-4653-4253-bddd-fb9a6dc67796.png)
 
-## 👨‍💻 Technologies
-<img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/python/python-plain.svg" width=50 height=50/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/django/django-plain.svg" width=50 height=50/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/html5/html5-plain.svg" width=50 height=50/> <img src="https://cdn.jsdelivr.net/gh/devicons/devicon/icons/postgresql/postgresql-plain-wordmark.svg" width=50 height=50/>
-
-<br></br>
 ## 🚀 Project
 The website was made using a modified free template (_template.zip_), that is inside the project folder. 
 It has a few key functionalities, such as:
